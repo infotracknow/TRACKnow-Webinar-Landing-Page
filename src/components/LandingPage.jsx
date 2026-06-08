@@ -139,6 +139,11 @@ export default function LandingPage({ onRegister }) {
         }
         
         @media (max-width: 1024px) {
+          .mobile-register-btn {
+            display: inline-flex !important;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+          }
           .split-layout {
             flex-direction: column-reverse;
           }
@@ -161,13 +166,99 @@ export default function LandingPage({ onRegister }) {
             padding-top: 40px;
           }
         }
+        
+        /* Utility Classes extracted for mobile responsiveness */
+        .header-nav {
+          padding: 24px 60px;
+          background: white;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .mobile-register-btn {
+          display: none;
+        }
+        .header-banner {
+          background: #f8fafc;
+          color: black;
+          padding: 12px 60px;
+          font-weight: 600;
+          font-size: 0.9rem;
+          display: flex;
+          gap: 24px;
+          align-items: center;
+          font-family: var(--font-display);
+          letter-spacing: 0.02em;
+          border-top: 1px solid var(--border-solid);
+        }
+        .form-row {
+          display: flex;
+          gap: 16px;
+        }
+        .hero-title {
+          font-size: 2.5rem;
+          margin-bottom: 16px;
+          color: #0f172a;
+          line-height: 1.1;
+          font-family: var(--font-display);
+          letter-spacing: -0.02em;
+        }
+        .meta-info {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 32px;
+          color: var(--accent-blue);
+          font-size: 1rem;
+          font-weight: 700;
+          flex-wrap: wrap;
+        }
+        .sidebar-title {
+          font-size: 1.5rem;
+          color: #0f172a;
+          margin-bottom: 24px;
+          font-family: var(--font-display);
+          font-weight: 800;
+        }
+        
+        @media (max-width: 768px) {
+          .header-nav {
+            padding: 16px 20px;
+          }
+          .header-banner {
+            padding: 12px 20px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+          }
+          .sidebar {
+            padding: 32px 20px;
+          }
+          .sidebar-title {
+            font-size: 1.25rem;
+          }
+          .form-row {
+            flex-direction: column;
+            gap: 16px;
+          }
+          .hero-title {
+            font-size: 1.8rem;
+          }
+          .content-grid {
+            padding: 24px 20px;
+            gap: 32px;
+          }
+          .meta-info {
+            font-size: 0.9rem;
+          }
+        }
       `}</style>
 
       <div className="split-layout">
         
         {/* Left Sidebar: Lead Form */}
-        <div className="sidebar">
-          <h2 style={{ fontSize: '1.5rem', color: '#0f172a', marginBottom: '24px', fontFamily: 'var(--font-display)', fontWeight: 800 }}>Lead Form</h2>
+        <div className="sidebar" id="lead-form">
+          <h2 className="sidebar-title">Lead Form</h2>
           
           <div style={{ position: 'relative', overflow: 'hidden', background: 'linear-gradient(45deg, #1d4ed8, #2563eb, #3b82f6)', color: 'white', padding: '16px', borderRadius: '8px', marginBottom: '24px', textAlign: 'center', boxShadow: '0 8px 16px rgba(37, 99, 235, 0.2)', border: '1px solid rgba(255,255,255,0.2)', width: '100%', minHeight: '100px' }}>
             {/* The shining sweep animation */}
@@ -200,7 +291,7 @@ export default function LandingPage({ onRegister }) {
           </div>
           
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px', flex: 1 }}>
-            <div style={{ display: 'flex', gap: '16px' }}>
+            <div className="form-row">
               <div style={{ flex: 1 }}>
                 <label style={labelStyle}>First name *</label>
                 <input required type="text" className="form-input" style={inputStyle} value={formData.name.split(' ')[0] || ''} onChange={e => {
@@ -279,13 +370,19 @@ export default function LandingPage({ onRegister }) {
           
           {/* Top Header Area: Branding & Banner */}
           <div className="header-area shine-line-bottom">
-            <nav style={{ padding: '24px 60px', background: 'white' }}>
+            <nav className="header-nav">
               <div style={{ fontSize: '1.75rem', fontWeight: 800, color: '#0f172a', fontFamily: 'var(--font-display)' }}>
                 TRACK<span className="text-gradient">now</span>
               </div>
+              <button 
+                className="btn btn-primary mobile-register-btn" 
+                onClick={() => document.getElementById('lead-form').scrollIntoView({ behavior: 'smooth' })}
+              >
+                Register
+              </button>
             </nav>
             
-            <div style={{ background: '#f8fafc', color: 'black', padding: '12px 60px', fontWeight: 600, fontSize: '0.9rem', display: 'flex', gap: '24px', alignItems: 'center', fontFamily: 'var(--font-display)', letterSpacing: '0.02em', borderTop: '1px solid var(--border-solid)' }}>
+            <div className="header-banner">
               <span style={{ fontWeight: 600, color: 'var(--text-secondary)'}}>Webinar on "TRACKnow PR" starts in :</span>
               <span style={{background: 'linear-gradient(45deg, #1d4ed8, #2563eb, #3b82f6)', borderRadius: '6px', padding: '2px 12px', color: 'white'}}><Calendar size={14} style={{ display: 'inline', verticalAlign: 'text-bottom', marginRight: '6px' }}/> June 15, 2026 10:00 AM</span>
               <span style={{ background: 'rgba(0,0,0,0.05)', padding: '2px 12px', borderRadius: '99px' }}><Clock size={14} style={{ display: 'inline', verticalAlign: 'text-bottom', marginRight: '6px' }}/> {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s</span>
@@ -315,11 +412,11 @@ export default function LandingPage({ onRegister }) {
                 <span className="badge badge-soft">NATIVE NETSUITE EXTENSION</span>
               </div>
               
-              <h1 style={{ fontSize: '2.5rem', marginBottom: '16px', color: '#0f172a', lineHeight: 1.1, fontFamily: 'var(--font-display)', letterSpacing: '-0.02em' }}>
+              <h1 className="hero-title">
                 The AI Operations Platform<br/>Built Inside NetSuite.
               </h1>
               
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '32px', color: 'var(--accent-blue)', fontSize: '1rem', fontWeight: 700 }}>
+              <div className="meta-info">
                 <Calendar size={18} /> June 15, 2026 • 10:00 AM EST • <Clock size={18} style={{ marginLeft: '8px' }} /> 60 min
               </div>
 
