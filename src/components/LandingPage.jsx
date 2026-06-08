@@ -1,20 +1,21 @@
 import { useState, useEffect } from 'react';
 import { Calendar, Clock, Sparkles } from 'lucide-react';
 
+const targetDate = new Date('2026-06-15T10:00:00');
+const calculateTimeLeft = () => {
+  const difference = +targetDate - +new Date();
+  if (difference > 0) {
+    return {
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((difference / 1000 / 60) % 60),
+      seconds: Math.floor((difference / 1000) % 60)
+    };
+  }
+  return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+};
+
 export default function LandingPage({ onRegister }) {
-  const targetDate = new Date('2026-06-15T10:00:00');
-  const calculateTimeLeft = () => {
-    const difference = +targetDate - +new Date();
-    if (difference > 0) {
-      return {
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60)
-      };
-    }
-    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-  };
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
   const [formData, setFormData] = useState({ name: '', company: '', email: '', role: '', phone: '', companySize: '', country: '', message: '' });
