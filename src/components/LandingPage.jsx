@@ -33,8 +33,8 @@ export default function LandingPage({ onRegister }) {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const portalId = "PLACEHOLDER_PORTAL_ID"; // Replace with your HubSpot Portal ID
-    const formGuid = "PLACEHOLDER_FORM_GUID"; // Replace with your HubSpot Form GUID
+    const portalId = "21715241"; // Replace with your HubSpot Portal ID
+    const formGuid = "066154cc-2331-4a80-b5d4-1344d33d3f1b"; // Replace with your HubSpot Form GUID
     const url = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formGuid}`;
 
     const hsData = {
