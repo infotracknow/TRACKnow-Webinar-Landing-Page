@@ -47,7 +47,8 @@ export default function LandingPage({ onRegister }) {
         { name: "phone", value: formData.phone },
         { name: "country", value: formData.country },
         { name: "company_size", value: formData.companySize },
-        { name: "message", value: formData.message }
+        // HubSpot requires the 'message' field, so we provide a default value if it's empty
+        { name: "message", value: formData.message || "Webinar Registration" }
       ]
     };
 
