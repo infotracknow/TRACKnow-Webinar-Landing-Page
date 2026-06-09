@@ -53,16 +53,24 @@ export default function LandingPage({ onRegister }) {
 
     try {
       if (portalId !== "PLACEHOLDER_PORTAL_ID") {
-        await fetch(url, {
+        const response = await fetch(url, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(hsData)
         });
+        if (!response.ok) {
+          const errorData = await response.text();
+          console.error("HubSpot API Error:", errorData);
+          alert("There was an issue submitting the form. Please check the console for details.");
+          setIsSubmitting(false);
+          return;
+        }
       } else {
         await new Promise(resolve => setTimeout(resolve, 1500)); // Mock delay
       }
       setIsSuccess(true);
-      if (onRegister) onRegister(formData);
+      // Temporarily disable redirecting to webinar page
+      // if (onRegister) onRegister(formData);
     } catch (error) {
       console.error("HubSpot Submission Error:", error);
     } finally {
