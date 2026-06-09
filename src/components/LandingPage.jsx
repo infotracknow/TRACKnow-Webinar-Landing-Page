@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Calendar, Clock, Sparkles } from 'lucide-react';
+import { Calendar, Clock, Sparkles, CheckCircle } from 'lucide-react';
 
 const targetDate = new Date('2026-06-15T10:00:00');
 const calculateTimeLeft = () => {
@@ -34,7 +34,7 @@ export default function LandingPage({ onRegister }) {
     setIsSubmitting(true);
 
     const portalId = "21715241"; // Replace with your HubSpot Portal ID
-    const formGuid = "066154cc-2331-4a80-b5d4-1344d33d3f1b"; // Replace with your HubSpot Form GUID
+    const formGuid = "a93759f6-4634-40cb-8823-0c7dd9fb9fcc"; // Replace with your HubSpot Form GUID
     const url = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formGuid}`;
 
     const hsData = {
@@ -347,7 +347,7 @@ export default function LandingPage({ onRegister }) {
 
             <div>
               <label style={labelStyle}>Phone number *</label>
-              <input required type="tel" className="form-input" style={inputStyle} value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} />
+              <input required type="tel" className="form-input" maxLength={10} style={inputStyle} value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} />
             </div>
 
             <div>
@@ -358,15 +358,9 @@ export default function LandingPage({ onRegister }) {
             <div style={{ flex: 1 }}></div>
 
             <div style={{ marginTop: '24px' }}>
-              {isSuccess ? (
-                <div style={{ padding: '16px', background: '#ecfdf5', color: '#047857', border: '1px solid #a7f3d0', borderRadius: '4px', fontWeight: 600, textAlign: 'center' }}>
-                  Successfully Registered! We'll be in touch soon.
-                </div>
-              ) : (
-                <button type="submit" disabled={isSubmitting} className="btn btn-primary" style={{ padding: '16px', width: '100%', fontSize: '1rem', opacity: isSubmitting ? 0.7 : 1, cursor: isSubmitting ? 'not-allowed' : 'pointer' }}>
-                  {isSubmitting ? 'SENDING REQUEST...' : 'Register Now'}
-                </button>
-              )}
+              <button type="submit" disabled={isSubmitting} className="btn btn-primary" style={{ padding: '16px', width: '100%', fontSize: '1rem', opacity: isSubmitting ? 0.7 : 1, cursor: isSubmitting ? 'not-allowed' : 'pointer' }}>
+                {isSubmitting ? 'SENDING REQUEST...' : 'Register Now'}
+              </button>
             </div>
             
             <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textAlign: 'center', marginTop: '8px', lineHeight: 1.5 }}>
@@ -480,6 +474,30 @@ export default function LandingPage({ onRegister }) {
           </div>
         </div>
       </div>
+
+      {isSuccess && (
+        <div className="modal-overlay">
+          <div className="modal-content" style={{ maxWidth: '400px', textAlign: 'center', padding: '40px 32px' }}>
+            <div style={{ margin: '0 auto 24px auto', width: '80px', height: '80px', background: '#ecfdf5', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#10b981', boxShadow: '0 0 0 8px #d1fae5' }}>
+              <CheckCircle size={40} />
+            </div>
+            <h2 style={{ fontSize: '1.75rem', marginBottom: '12px', color: '#0f172a' }}>You're In!</h2>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '32px', fontSize: '1.05rem', lineHeight: 1.6 }}>
+              Your registration was successful.<br />We've saved your spot for the webinar.
+            </p>
+            <button 
+              className="btn btn-primary" 
+              style={{ width: '100%', padding: '14px' }}
+              onClick={() => {
+                setIsSuccess(false);
+                setFormData({ name: '', company: '', email: '', role: '', phone: '', companySize: '', country: '', message: '' });
+              }}
+            >
+              Done
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }
