@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Calendar, Clock, Sparkles, CheckCircle } from 'lucide-react';
+import logoImg from '../assets/logo.png';
 
 const targetDate = new Date('2026-06-15T10:00:00');
 const calculateTimeLeft = () => {
@@ -375,9 +376,7 @@ export default function LandingPage({ onRegister }) {
           {/* Top Header Area: Branding & Banner */}
           <div className="header-area shine-line-bottom">
             <nav className="header-nav">
-              <div style={{ fontSize: '1.75rem', fontWeight: 800, color: '#0f172a', fontFamily: 'var(--font-display)' }}>
-                TRACK<span className="text-gradient">now</span>
-              </div>
+              <img src={logoImg} alt='TRACKnow' style={{ height: '80px', width: 'auto' }}/>
               <button 
                 className="btn btn-primary mobile-register-btn" 
                 onClick={() => document.getElementById('lead-form').scrollIntoView({ behavior: 'smooth' })}
