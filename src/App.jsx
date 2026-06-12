@@ -13,6 +13,7 @@ function App() {
 
   return (
     <>
+      {currentPage === 'landing' && <LandingPage onRegister={handleRegister} />}
       {currentPage === 'webinar-room' && <WebinarRoom user={user} />}
     </>
   );
