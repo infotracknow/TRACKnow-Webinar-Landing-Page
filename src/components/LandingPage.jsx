@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { Calendar, Clock, Sparkles, CheckCircle } from 'lucide-react';
 import logoImg from '../assets/logo.png';
 
+const targetDate = new Date('2026-07-15T11:00:00');
 const calculateTimeLeft = () => {
-  const targetDate = new Date('2026/07/15 10:00:00');
   const difference = +targetDate - +new Date();
   if (difference > 0) {
     return {
@@ -124,7 +124,7 @@ export default function LandingPage({ onRegister }) {
         }
         .content-grid {
           display: grid;
-          grid-template-columns: 1fr 400px;
+          grid-template-columns: 1fr 300px;
           gap: 60px;
           padding: 40px 60px;
         }
@@ -387,7 +387,7 @@ export default function LandingPage({ onRegister }) {
             
             <div className="header-banner">
               <span style={{ fontWeight: 600, color: 'var(--text-secondary)'}}>Webinar on "TRACKnow PR" starts in :</span>
-              <span style={{background: 'linear-gradient(45deg, #1d4ed8, #2563eb, #3b82f6)', borderRadius: '6px', padding: '2px 12px', color: 'white'}}><Calendar size={14} style={{ display: 'inline', verticalAlign: 'text-bottom', marginRight: '6px' }}/> July 15, 2026 10:00 AM</span>
+              <span style={{background: 'linear-gradient(45deg, #1d4ed8, #2563eb, #3b82f6)', borderRadius: '6px', padding: '2px 12px', color: 'white'}}><Calendar size={14} style={{ display: 'inline', verticalAlign: 'text-bottom', marginRight: '6px' }}/> July 15, 2026 11:00 AM</span>
               <span style={{ background: 'rgba(0,0,0,0.05)', padding: '2px 12px', borderRadius: '99px' }}><Clock size={14} style={{ display: 'inline', verticalAlign: 'text-bottom', marginRight: '6px' }}/> {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s</span>
             </div>
           </div>
@@ -415,29 +415,35 @@ export default function LandingPage({ onRegister }) {
                 <span className="badge badge-soft">NATIVE NETSUITE EXTENSION</span>
               </div>
               
-              <h1 className="hero-title">
-                The AI Operations Platform<br/>Built Inside NetSuite.
+              <h1 className="hero-title" style={{ fontSize: '2.2rem' }}>
+                The Invisible Costs of Procurement:<br/>What Your ERP Isn't Telling You
               </h1>
               
               <div className="meta-info">
-                <Calendar size={18} /> July 15, 2026 • 10:00 AM EST • <Clock size={18} style={{ marginLeft: '8px' }} /> 60 min
+                <Calendar size={18} /> July 15, 2026 • 11:00 AM EST •
               </div>
 
               <div style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '40px' }}>
                 <p style={{ marginBottom: '16px' }}>
-                  Procurement isn't easy, and when your team relies on outdated spreadsheets or disconnected tools, it can be even harder. Communication failures can run the gamut, from misunderstanding approval hierarchies to disjointed supplier tracking.
+                  Your ERP records every purchase, but it rarely tells you what a request actually means for your business. What's urgent? What quietly affects operations next month? What's quietly inflating your costs through delays, fragmented approvals and maverick spend?
+                </p>
+                <p style={{ marginBottom: '16px' }}>
+                  In this live session, we'll unpack the hidden costs buried in everyday procurement, why more dashboards haven't fixed them, and how AI is helping NetSuite teams move from simply processing requests to understanding them, bringing clarity and context to the decision before the money is committed.
                 </p>
                 <p>
-                  Join this webinar to learn how to help get everyone aligned in a digital HQ and make sure that no information is lost. Learn how better automation means better performance for you and your procurement team.
+                  A practical, vendor-light session for finance, procurement and operations leaders who want their procurement function to think, not just file.
                 </p>
               </div>
 
-              <h3 style={{ fontSize: '1.25rem', marginBottom: '24px', color: '#0f172a', fontWeight: 700 }}>Things you'll learn:</h3>
+              <h3 style={{ fontSize: '1.25rem', marginBottom: '24px', color: '#0f172a', fontWeight: 700 }}>What you'll learn:</h3>
               <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 {[
-                  "How to give employees a sense of purpose and engagement and increase employee retention rates",
-                  "How to boost company resilience in times of crisis",
-                  "How to clarify messaging and improve transparency"
+                  "The hidden costs of delayed approvals and fragmented procurement processes",
+                  "How poor procurement visibility quietly drains cash flow and slows operations",
+                  "Where supplier risk and maverick spending really come from — and how to see them earlier",
+                  "Why dashboards alone don't solve the problem",
+                  "How AI and operational intelligence are reshaping procurement decisions inside NetSuite",
+                  "A look at context-aware purchase requests in practice"
                 ].map((item, i) => (
                   <li key={i} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start', color: '#334155', fontSize: '1rem', fontWeight: 500, lineHeight: 1.6 }}>
                     <span className="shine-text" style={{ fontSize: '1.2rem', marginTop: '-2px' }}>■</span>
@@ -447,68 +453,21 @@ export default function LandingPage({ onRegister }) {
               </ul>
             </div>
 
-            {/* Right Side Column for new content */}
-            <div className="panelist-column shine-line-left" style={{ paddingLeft: '40px' }}>
-              <h2 style={{ fontSize: '1.5rem', marginBottom: '16px', color: '#0f172a', fontWeight: 700, lineHeight: 1.3, fontFamily: 'var(--font-display)' }}>
-                The Invisible Costs of Procurement: What Your ERP Isn't Telling You
-              </h2>
+            {/* Panelist Information */}
+            <div className="panelist-column shine-line-left">
+              <h3 style={{ fontSize: '1.25rem', marginBottom: '32px', color: '#0f172a', fontWeight: 700 }}>Panelist Information</h3>
               
-              <div style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '24px' }}>
-                <strong style={{ display: 'block', marginBottom: '8px', color: '#0f172a' }}>Description:</strong>
-                <p style={{ marginBottom: '12px' }}>
-                  Your ERP records every purchase, but it rarely tells you what a request actually means for your business. What's urgent? What quietly affects operations next month? What's quietly inflating your costs through delays, fragmented approvals and maverick spend?
-                </p>
-                <p style={{ marginBottom: '12px' }}>
-                  In this live session, we'll unpack the hidden costs buried in everyday procurement, why more dashboards haven't fixed them, and how AI is helping NetSuite teams move from simply processing requests to understanding them, bringing clarity and context to the decision before the money is committed.
-                </p>
-                <p>
-                  A practical, vendor-light session for finance, procurement and operations leaders who want their procurement function to think, not just file.
-                </p>
-              </div>
-
-              <div style={{ marginBottom: '32px' }}>
-                <strong style={{ display: 'block', fontSize: '1.1rem', marginBottom: '12px', color: '#0f172a' }}>What you'll learn:</strong>
-                <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                  {[
-                    "The hidden costs of delayed approvals and fragmented procurement processes",
-                    "How poor procurement visibility quietly drains cash flow and slows operations",
-                    "Where supplier risk and maverick spending really come from — and how to see them earlier",
-                    "Why dashboards alone don't solve the problem",
-                    "How AI and operational intelligence are reshaping procurement decisions inside NetSuite",
-                    "A look at context-aware purchase requests in practice"
-                  ].map((item, i) => (
-                    <li key={i} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', color: '#334155', fontSize: '0.9rem', lineHeight: 1.5 }}>
-                      <span className="shine-text" style={{ fontSize: '1rem', marginTop: '-2px' }}>■</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Panelist Information Bottom Section */}
-          <div style={{ padding: '0 60px 60px 60px' }}>
-            <div style={{ borderTop: '1px solid var(--border-solid)', paddingTop: '40px' }}>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '32px', color: '#0f172a', fontWeight: 700, textAlign: 'center' }}>Meet Your Panelists</h3>
-              <div style={{ display: 'flex', gap: '32px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                <div className="panelist-card" style={{ flex: '1', minWidth: '300px', maxWidth: '400px', border: '1px solid var(--border-solid)', background: '#f8fafc' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginLeft: '-16px' }}>
+                <div className="panelist-card">
                   <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, #e2e8f0, #cbd5e1)', flexShrink: 0, boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.05)' }}></div>
                   <div>
-                    <strong style={{ display: 'block', fontSize: '1.1rem', color: '#0f172a', marginBottom: '4px' }}>Ramesh Oruganti</strong>
-                    <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', display: 'block', lineHeight: 1.4 }}>Founder & CEO, TRACKnow</span>
-                  </div>
-                </div>
-                
-                <div className="panelist-card" style={{ flex: '1', minWidth: '300px', maxWidth: '400px', border: '1px solid var(--border-solid)', background: '#f8fafc' }}>
-                  <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, #e2e8f0, #cbd5e1)', flexShrink: 0, boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.05)' }}></div>
-                  <div>
-                    <strong style={{ display: 'block', fontSize: '1.1rem', color: '#0f172a', marginBottom: '4px' }}>Santhosh Nookala</strong>
-                    <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', display: 'block', lineHeight: 1.4 }}>VP, Customer Success, TRACKnow</span>
+                    <strong style={{ display: 'block', fontSize: '1rem', color: '#0f172a', marginBottom: '4px' }}>Ramesh Oruganti</strong>
+                    <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', display: 'block', lineHeight: 1.4 }}>Founder & CEO, TRACKnow</span>
                   </div>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
