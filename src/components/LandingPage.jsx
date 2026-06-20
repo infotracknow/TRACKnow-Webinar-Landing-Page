@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { Calendar, Clock, Sparkles, CheckCircle } from 'lucide-react';
 import logoImg from '../assets/logo.png';
 
-const targetDate = new Date('2026-06-15T10:00:00');
 const calculateTimeLeft = () => {
+  const targetDate = new Date('2026/07/15 10:00:00');
   const difference = +targetDate - +new Date();
   if (difference > 0) {
     return {
@@ -124,7 +124,7 @@ export default function LandingPage({ onRegister }) {
         }
         .content-grid {
           display: grid;
-          grid-template-columns: 1fr 300px;
+          grid-template-columns: 1fr 400px;
           gap: 60px;
           padding: 40px 60px;
         }
@@ -387,7 +387,7 @@ export default function LandingPage({ onRegister }) {
             
             <div className="header-banner">
               <span style={{ fontWeight: 600, color: 'var(--text-secondary)'}}>Webinar on "TRACKnow PR" starts in :</span>
-              <span style={{background: 'linear-gradient(45deg, #1d4ed8, #2563eb, #3b82f6)', borderRadius: '6px', padding: '2px 12px', color: 'white'}}><Calendar size={14} style={{ display: 'inline', verticalAlign: 'text-bottom', marginRight: '6px' }}/> June 15, 2026 10:00 AM</span>
+              <span style={{background: 'linear-gradient(45deg, #1d4ed8, #2563eb, #3b82f6)', borderRadius: '6px', padding: '2px 12px', color: 'white'}}><Calendar size={14} style={{ display: 'inline', verticalAlign: 'text-bottom', marginRight: '6px' }}/> July 15, 2026 10:00 AM</span>
               <span style={{ background: 'rgba(0,0,0,0.05)', padding: '2px 12px', borderRadius: '99px' }}><Clock size={14} style={{ display: 'inline', verticalAlign: 'text-bottom', marginRight: '6px' }}/> {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s</span>
             </div>
           </div>
@@ -399,7 +399,7 @@ export default function LandingPage({ onRegister }) {
             
             {/* Title, Date/Time, Description, Bullets */}
             <div>
-              <div className="shine-box" style={{ marginBottom: '32px', borderRadius: '12px', overflow: 'hidden', border: '1px solid transparent' }}>
+              {/* <div className="shine-box" style={{ marginBottom: '32px', borderRadius: '12px', overflow: 'hidden', border: '1px solid transparent' }}>
                 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
                   <iframe 
                     style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }} 
@@ -409,7 +409,7 @@ export default function LandingPage({ onRegister }) {
                     allowFullScreen>
                   </iframe>
                 </div>
-              </div>
+              </div> */}
               <div style={{ display: 'flex', gap: '16px', marginBottom: '24px', flexWrap: 'wrap' }}>
                 <span className="badge badge-solid"><Sparkles size={14} /> AI-POWERED PLATFORM</span>
                 <span className="badge badge-soft">NATIVE NETSUITE EXTENSION</span>
@@ -420,7 +420,7 @@ export default function LandingPage({ onRegister }) {
               </h1>
               
               <div className="meta-info">
-                <Calendar size={18} /> June 15, 2026 • 10:00 AM EST • <Clock size={18} style={{ marginLeft: '8px' }} /> 60 min
+                <Calendar size={18} /> July 15, 2026 • 10:00 AM EST • <Clock size={18} style={{ marginLeft: '8px' }} /> 60 min
               </div>
 
               <div style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '40px' }}>
@@ -447,29 +447,68 @@ export default function LandingPage({ onRegister }) {
               </ul>
             </div>
 
-            {/* Panelist Information */}
-            <div className="panelist-column shine-line-left">
-              <h3 style={{ fontSize: '1.25rem', marginBottom: '32px', color: '#0f172a', fontWeight: 700 }}>Panelist Information</h3>
+            {/* Right Side Column for new content */}
+            <div className="panelist-column shine-line-left" style={{ paddingLeft: '40px' }}>
+              <h2 style={{ fontSize: '1.5rem', marginBottom: '16px', color: '#0f172a', fontWeight: 700, lineHeight: 1.3, fontFamily: 'var(--font-display)' }}>
+                The Invisible Costs of Procurement: What Your ERP Isn't Telling You
+              </h2>
               
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginLeft: '-16px' }}>
-                <div className="panelist-card">
+              <div style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '24px' }}>
+                <strong style={{ display: 'block', marginBottom: '8px', color: '#0f172a' }}>Description:</strong>
+                <p style={{ marginBottom: '12px' }}>
+                  Your ERP records every purchase, but it rarely tells you what a request actually means for your business. What's urgent? What quietly affects operations next month? What's quietly inflating your costs through delays, fragmented approvals and maverick spend?
+                </p>
+                <p style={{ marginBottom: '12px' }}>
+                  In this live session, we'll unpack the hidden costs buried in everyday procurement, why more dashboards haven't fixed them, and how AI is helping NetSuite teams move from simply processing requests to understanding them, bringing clarity and context to the decision before the money is committed.
+                </p>
+                <p>
+                  A practical, vendor-light session for finance, procurement and operations leaders who want their procurement function to think, not just file.
+                </p>
+              </div>
+
+              <div style={{ marginBottom: '32px' }}>
+                <strong style={{ display: 'block', fontSize: '1.1rem', marginBottom: '12px', color: '#0f172a' }}>What you'll learn:</strong>
+                <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  {[
+                    "The hidden costs of delayed approvals and fragmented procurement processes",
+                    "How poor procurement visibility quietly drains cash flow and slows operations",
+                    "Where supplier risk and maverick spending really come from — and how to see them earlier",
+                    "Why dashboards alone don't solve the problem",
+                    "How AI and operational intelligence are reshaping procurement decisions inside NetSuite",
+                    "A look at context-aware purchase requests in practice"
+                  ].map((item, i) => (
+                    <li key={i} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start', color: '#334155', fontSize: '0.9rem', lineHeight: 1.5 }}>
+                      <span className="shine-text" style={{ fontSize: '1rem', marginTop: '-2px' }}>■</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Panelist Information Bottom Section */}
+          <div style={{ padding: '0 60px 60px 60px' }}>
+            <div style={{ borderTop: '1px solid var(--border-solid)', paddingTop: '40px' }}>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '32px', color: '#0f172a', fontWeight: 700, textAlign: 'center' }}>Meet Your Panelists</h3>
+              <div style={{ display: 'flex', gap: '32px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <div className="panelist-card" style={{ flex: '1', minWidth: '300px', maxWidth: '400px', border: '1px solid var(--border-solid)', background: '#f8fafc' }}>
                   <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, #e2e8f0, #cbd5e1)', flexShrink: 0, boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.05)' }}></div>
                   <div>
-                    <strong style={{ display: 'block', fontSize: '1.1rem', color: '#0f172a', marginBottom: '4px' }}>Jade Manley</strong>
-                    <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', display: 'block', lineHeight: 1.4 }}>Employee Learning & Development Manager</span>
+                    <strong style={{ display: 'block', fontSize: '1.1rem', color: '#0f172a', marginBottom: '4px' }}>Ramesh Oruganti</strong>
+                    <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', display: 'block', lineHeight: 1.4 }}>Founder & CEO, TRACKnow</span>
                   </div>
                 </div>
                 
-                <div className="panelist-card">
+                <div className="panelist-card" style={{ flex: '1', minWidth: '300px', maxWidth: '400px', border: '1px solid var(--border-solid)', background: '#f8fafc' }}>
                   <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, #e2e8f0, #cbd5e1)', flexShrink: 0, boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.05)' }}></div>
                   <div>
-                    <strong style={{ display: 'block', fontSize: '1.1rem', color: '#0f172a', marginBottom: '4px' }}>Jay Van Bavel</strong>
-                    <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', display: 'block', lineHeight: 1.4 }}>Associate Professor of Psychology</span>
+                    <strong style={{ display: 'block', fontSize: '1.1rem', color: '#0f172a', marginBottom: '4px' }}>Santhosh Nookala</strong>
+                    <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', display: 'block', lineHeight: 1.4 }}>VP, Customer Success, TRACKnow</span>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
