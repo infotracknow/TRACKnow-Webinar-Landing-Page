@@ -459,7 +459,9 @@ export default function LandingPage({ onRegister }) {
               
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginLeft: '-16px' }}>
                 <div className="panelist-card">
-                  <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, #e2e8f0, #cbd5e1)', flexShrink: 0, boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.05)' }}></div>
+                  <div>
+                    <img style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, #e2e8f0, #cbd5e1)', flexShrink: 0, boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.05)' }} src='https://img1.wsimg.com/isteam/ip/05fc66d2-8270-465a-8369-e47719b81a92/RameshHeadshot.jpg/:/cr=t:5.56%25,l:5.25%25,w:94.34%25,h:70.76%25/rs=w:1095,h:1095,cg:true,m' />
+                  </div>
                   <div>
                     <strong style={{ display: 'block', fontSize: '1rem', color: '#0f172a', marginBottom: '4px' }}>Ramesh Oruganti</strong>
                     <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', display: 'block', lineHeight: 1.4 }}>Founder & CEO, TRACKnow</span>
