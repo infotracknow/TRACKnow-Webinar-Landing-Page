@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Calendar, Clock, Sparkles, CheckCircle } from 'lucide-react';
 import logoImg from '../assets/logo.png';
 
-const targetDate = new Date('2026-07-15T11:00:00');
+const targetDate = new Date('2026-07-15T11:00:00-07:00');
 const calculateTimeLeft = () => {
   const difference = +targetDate - +new Date();
   if (difference > 0) {
@@ -387,7 +387,7 @@ export default function LandingPage({ onRegister }) {
             
             <div className="header-banner">
               <span style={{ fontWeight: 600, color: 'var(--text-secondary)'}}>Webinar on "TRACKnow PR" starts in :</span>
-              <span style={{background: 'linear-gradient(45deg, #1d4ed8, #2563eb, #3b82f6)', borderRadius: '6px', padding: '2px 12px', color: 'white'}}><Calendar size={14} style={{ display: 'inline', verticalAlign: 'text-bottom', marginRight: '6px' }}/> July 15, 2026 11:00 AM</span>
+              <span style={{background: 'linear-gradient(45deg, #1d4ed8, #2563eb, #3b82f6)', borderRadius: '6px', padding: '2px 12px', color: 'white'}}><Calendar size={14} style={{ display: 'inline', verticalAlign: 'text-bottom', marginRight: '6px' }}/> July 15, 2026 11:00 AM PDT</span>
               <span style={{ background: 'rgba(0,0,0,0.05)', padding: '2px 12px', borderRadius: '99px' }}><Clock size={14} style={{ display: 'inline', verticalAlign: 'text-bottom', marginRight: '6px' }}/> {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s</span>
             </div>
           </div>
@@ -420,7 +420,7 @@ export default function LandingPage({ onRegister }) {
               </h1>
               
               <div className="meta-info">
-                <Calendar size={18} /> July 15, 2026 • 11:00 AM EST •
+                <Calendar size={18} /> July 15, 2026 • 11:00 AM PDT •
               </div>
 
               <div style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '40px' }}>
