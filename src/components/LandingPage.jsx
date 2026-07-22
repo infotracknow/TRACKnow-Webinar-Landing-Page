@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Calendar, Clock, Sparkles, CheckCircle } from 'lucide-react';
 import logoImg from '../assets/logo.png';
 
-const targetDate = new Date('2026-07-15T11:00:00-07:00');
+const targetDate = new Date('2026-08-27T11:00:00-07:00');
 const calculateTimeLeft = () => {
   const difference = +targetDate - +new Date();
   if (difference > 0) {
@@ -387,7 +387,7 @@ export default function LandingPage({ onRegister }) {
             
             <div className="header-banner">
               <span style={{ fontWeight: 600, color: 'var(--text-secondary)'}}>Webinar on "TRACKnow PR" starts in :</span>
-              <span style={{background: 'linear-gradient(45deg, #1d4ed8, #2563eb, #3b82f6)', borderRadius: '6px', padding: '2px 12px', color: 'white'}}><Calendar size={14} style={{ display: 'inline', verticalAlign: 'text-bottom', marginRight: '6px' }}/> July 15, 2026 11:00 AM PDT</span>
+              <span style={{background: 'linear-gradient(45deg, #1d4ed8, #2563eb, #3b82f6)', borderRadius: '6px', padding: '2px 12px', color: 'white'}}><Calendar size={14} style={{ display: 'inline', verticalAlign: 'text-bottom', marginRight: '6px' }}/> August 27, 2026 11:00 AM PST</span>
               <span style={{ background: 'rgba(0,0,0,0.05)', padding: '2px 12px', borderRadius: '99px' }}><Clock size={14} style={{ display: 'inline', verticalAlign: 'text-bottom', marginRight: '6px' }}/> {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s</span>
             </div>
           </div>
@@ -416,34 +416,35 @@ export default function LandingPage({ onRegister }) {
               </div>
               
               <h1 className="hero-title" style={{ fontSize: '2.2rem' }}>
-                The Invisible Costs of Procurement:<br/>What Your ERP Isn't Telling You
+                When ERPs Aren’t Built for Agentic AI, What Are Your Options?
               </h1>
               
               <div className="meta-info">
-                <Calendar size={18} /> July 15, 2026 • 11:00 AM PDT •
+                <Calendar size={18} /> August 27, 2026 • 11:00 AM PST •
               </div>
 
               <div style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '40px' }}>
                 <p style={{ marginBottom: '16px' }}>
-                  Your ERP records every purchase, but it rarely tells you what a request actually means for your business. What's urgent? What quietly affects operations next month? What's quietly inflating your costs through delays, fragmented approvals and maverick spend?
+                  ERPs are excellent systems of record. They capture requests, approvals, purchase orders, vendors, transactions, and financial data. But Agentic AI needs more than recorded data. It needs context. It needs workflow awareness. It needs decision logic. It needs the ability to identify bottlenecks, interpret urgency, and recommend what should happen next. That is where many ERP environments struggle.
                 </p>
                 <p style={{ marginBottom: '16px' }}>
-                  In this live session, we'll unpack the hidden costs buried in everyday procurement, why more dashboards haven't fixed them, and how AI is helping NetSuite teams move from simply processing requests to understanding them, bringing clarity and context to the decision before the money is committed.
+                  In this live webinar, we will explore how NetSuite, TRACKnow, and Claude can work together to solve complex procurement challenges and reduce operational costs. You will see how TRACKnow acts as an AI intelligence layer around NetSuite procurement, helping teams understand requests, surface risks, reduce manual follow-ups, and move decisions forward with greater clarity.
                 </p>
                 <p>
-                  A practical, vendor-light session for finance, procurement and operations leaders who want their procurement function to think, not just file.
+                  This is a practical session for finance, procurement, operations, and NetSuite leaders who are exploring what Agentic AI can realistically do inside ERP-driven procurement workflows.
                 </p>
               </div>
 
               <h3 style={{ fontSize: '1.25rem', marginBottom: '24px', color: '#0f172a', fontWeight: 700 }}>What you'll learn:</h3>
               <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 {[
-                  "The hidden costs of delayed approvals and fragmented procurement processes",
-                  "How poor procurement visibility quietly drains cash flow and slows operations",
-                  "Where supplier risk and maverick spending really come from — and how to see them earlier",
-                  "Why dashboards alone don't solve the problem",
-                  "How AI and operational intelligence are reshaping procurement decisions inside NetSuite",
-                  "A look at context-aware purchase requests in practice"
+                  "Why traditional ERPs were not originally designed for Agentic AI",
+                  "Where procurement bottlenecks appear inside NetSuite-driven workflows",
+                  "How AI can help interpret request urgency, supplier risk, approval delays, and operational impact",
+                  "How TRACKnow acts as an intelligence layer between NetSuite data and AI-driven action",
+                  "How Claude can support reasoning, summarisation, exception detection, and workflow guidance",
+                  "How procurement teams can reduce manual follow-ups and operational costs",
+                  "What a practical NetSuite + TRACKnow + Claude workflow looks like in action"
                 ].map((item, i) => (
                   <li key={i} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start', color: '#334155', fontSize: '1rem', fontWeight: 500, lineHeight: 1.6 }}>
                     <span className="shine-text" style={{ fontSize: '1.2rem', marginTop: '-2px' }}>■</span>
@@ -465,6 +466,33 @@ export default function LandingPage({ onRegister }) {
                   <div>
                     <strong style={{ display: 'block', fontSize: '1rem', color: '#0f172a', marginBottom: '4px' }}>Ramesh Oruganti</strong>
                     <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', display: 'block', lineHeight: 1.4 }}>Founder & CEO, TRACKnow</span>
+                  </div>
+                </div>
+                <div className="panelist-card">
+                  <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, #e2e8f0, #cbd5e1)', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748b', fontSize: '1.5rem', fontWeight: 'bold', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.05)' }}>
+                    D
+                  </div>
+                  <div>
+                    <strong style={{ display: 'block', fontSize: '1rem', color: '#0f172a', marginBottom: '4px' }}>Dinesh</strong>
+                    <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', display: 'block', lineHeight: 1.4 }}>Panelist</span>
+                  </div>
+                </div>
+                <div className="panelist-card">
+                  <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, #e2e8f0, #cbd5e1)', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748b', fontSize: '1.5rem', fontWeight: 'bold', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.05)' }}>
+                    T
+                  </div>
+                  <div>
+                    <strong style={{ display: 'block', fontSize: '1rem', color: '#0f172a', marginBottom: '4px' }}>Teja</strong>
+                    <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', display: 'block', lineHeight: 1.4 }}>Panelist</span>
+                  </div>
+                </div>
+                <div className="panelist-card">
+                  <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, #e2e8f0, #cbd5e1)', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748b', fontSize: '1.5rem', fontWeight: 'bold', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.05)' }}>
+                    L
+                  </div>
+                  <div>
+                    <strong style={{ display: 'block', fontSize: '1rem', color: '#0f172a', marginBottom: '4px' }}>Luke</strong>
+                    <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', display: 'block', lineHeight: 1.4 }}>Panelist</span>
                   </div>
                 </div>
               </div>
