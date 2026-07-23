@@ -480,7 +480,7 @@ export default function LandingPage({ onRegister }) {
                 </div>
                 <div className="panelist-card">
                   <div>
-                    <img style={{ width: '80px', height: '80px', borderRadius: '50%', objectFit: 'cover', background: 'linear-gradient(135deg, #e2e8f0, #cbd5e1)', flexShrink: 0, boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.05)' }} src={tejaImg} />
+                    <img style={{ width: '80px', height: '80px', borderRadius: '50%', objectFit: 'cover', objectPosition: 'top', background: 'linear-gradient(135deg, #e2e8f0, #cbd5e1)', flexShrink: 0, boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.05)' }} src={tejaImg} />
                   </div>
                   <div>
                     <strong style={{ display: 'block', fontSize: '1rem', color: '#0f172a', marginBottom: '4px' }}>Teja</strong>
