@@ -35,7 +35,7 @@ export default function LandingPage({ onRegister }) {
     setIsSubmitting(true);
 
     const portalId = "21715241"; // Replace with your HubSpot Portal ID
-    const formGuid = "a93759f6-4634-40cb-8823-0c7dd9fb9fcc"; // Replace with your HubSpot Form GUID
+    const formGuid = "354b9e18-9a34-4ca3-b395-2e5ee3fbea59"; // Replace with your HubSpot Form GUID
     const url = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formGuid}`;
 
     const hsData = {
@@ -487,8 +487,8 @@ export default function LandingPage({ onRegister }) {
                   </div>
                 </div>
                 <div className="panelist-card">
-                  <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, #e2e8f0, #cbd5e1)', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#64748b', fontSize: '1.5rem', fontWeight: 'bold', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.05)' }}>
-                    L
+                  <div>
+                    <img style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'linear-gradient(135deg, #e2e8f0, #cbd5e1)', flexShrink: 0, boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.05)' }} src='https://img1.wsimg.com/isteam/ip/05fc66d2-8270-465a-8369-e47719b81a92/LukeHead_Contrast.jpg/:/cr=t:3.5%25,l:5.66%25,w:94.34%25,h:70.72%25/rs=w:730,h:730,cg:true,m' />
                   </div>
                   <div>
                     <strong style={{ display: 'block', fontSize: '1rem', color: '#0f172a', marginBottom: '4px' }}>Luke</strong>
