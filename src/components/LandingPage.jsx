@@ -347,13 +347,13 @@ export default function LandingPage({ onRegister }) {
             </div>
 
             <div>
-              <label style={labelStyle}>Phone number *</label>
-              <input required type="tel" className="form-input" maxLength={10} style={inputStyle} value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} />
+              <label style={labelStyle}>Phone number</label>
+              <input type="tel" className="form-input" maxLength={10} style={inputStyle} value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} />
             </div>
 
             <div>
-              <label style={labelStyle}>Country *</label>
-              <input required type="text" className="form-input" style={inputStyle} value={formData.country} onChange={e => setFormData({...formData, country: e.target.value})} />
+              <label style={labelStyle}>Country</label>
+              <input type="text" className="form-input" style={inputStyle} value={formData.country} onChange={e => setFormData({...formData, country: e.target.value})} />
             </div>
 
             <div style={{ flex: 1 }}></div>
