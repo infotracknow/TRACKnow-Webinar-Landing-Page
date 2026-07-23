@@ -475,7 +475,7 @@ export default function LandingPage({ onRegister }) {
                   </div>
                   <div>
                     <strong style={{ display: 'block', fontSize: '1rem', color: '#0f172a', marginBottom: '4px' }}>Dinesh</strong>
-                    <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', display: 'block', lineHeight: 1.4 }}>Panelist</span>
+                    <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', display: 'block', lineHeight: 1.4 }}>Product Manager</span>
                   </div>
                 </div>
                 <div className="panelist-card">
